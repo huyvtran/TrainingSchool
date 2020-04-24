@@ -581,61 +581,6 @@ Public Class Ajaxadminlms
     End Sub
 
 
-    Sub downloadreport()
-
-        Dim idcourse = Request.QueryString("idcourse")
-        Dim iduser = Request.QueryString("iduser")
-        Try
-            If iduser <> "" Then
-                sqlstring = "Select firstname, lastname, concat(coalesce((Select title from learning_organization where idorg=g.idparent),''),' -> ',g.title ) as test, b.number_of_attempt,a.score,a.number_time,date_format(a.date_begin,'%d/%m/%y %h:%mm') as 'data inizio' ,date_format(a.date_end,'%d/%m/%y %h:%mm') as 'data fine' ,b.score as lastscore,d.score_max,d.point_required from (((learning_testtrack_times a right join learning_testtrack b on a.idtrack=b.idtrack) join core_user c on b.iduser=c.idst ) join learning_test d on d.idtest=b.idtest ) join learning_organization g on g.idresource=b.idtest where objecttype='test' and b.iduser=" & iduser & " and g.idcourse=" & idcourse & ""
-
-            Else
-
-                sqlstring = "select firstname,lastname,concat(coalesce((select title from learning_organization where idorg=g.idparent),''),' -> ',g.title ) as test, b.number_of_attempt,a.score,a.number_time,date_format(a.date_begin,'%d/%m/%y %h:%mm') as 'data inizio' ,date_format(a.date_end,'%d/%m/%y %h:%mm') as 'data fine' ,b.score as lastscore,d.score_max,d.point_required from (((learning_testtrack_times a right join learning_testtrack b on a.idtrack=b.idtrack) join core_user c on b.iduser=c.idst ) join learning_test d on d.idtest=b.idtest ) join learning_organization g on g.idresource=b.idtest where objecttype='test' and g.idcourse=" & idcourse & ""
-
-            End If
-
-            dt = conn.GetDataTable(sqlstring, CommandType.Text, Nothing)
-
-            Dim filename As String
-
-            If iduser <> "" Then
-                filename = Server.MapPath("temp") & "/report_" & idcourse & "-" & SharedRoutines.EscapeSql(dt.Rows(0)("firstname") & " " & dt.Rows(0)("lastname")) & ".xls"
-            Else
-                filename = Server.MapPath("temp") & "/report_" & idcourse & ".xls"
-            End If
-
-            Dim g = Guid.NewGuid().ToString
-            Dim fs As System.IO.FileStream
-            Dim xtw As System.Xml.XmlTextWriter
-
-            dt.TableName = "report"
-
-            fs = New System.IO.FileStream(filename, System.IO.FileMode.Create)
-
-            xtw = New System.Xml.XmlTextWriter(fs, System.Text.Encoding.Unicode)
-
-            xtw.WriteProcessingInstruction("xml", "version='1.0'")
-
-            xtw.WriteProcessingInstruction("mso-application", "progid='excel.sheet'")
-
-            dt.WriteXml(xtw)
-
-            xtw.Close()
-
-            msg = "/temp/" & System.IO.Path.GetFileName(filename)
-
-        Catch ex As Exception
-
-            LogWrite(ex.ToString)
-
-            msg = "nessuna risposta"
-
-        End Try
-
-    End Sub
-
-
 
 
 #Region "admin"
