@@ -1,0 +1,56 @@
+
+  #calendar-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .fc-header-toolbar {
+    /*
+    the calendar will be butting up against the edges,
+    but let's scoot in the header's buttons
+    */
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  #calendar-container table th, #calendar-container table th.fc-today {
+    background-color: #666!important;
+	color: #ddd;
+	font-weight: 500;
+  }
+  .fc-day{
+	background-color: #fff;
+  }
+  .fc-sun{
+	background-color: #e8e8e8;
+	color: #a8a8a8;
+  }
+  
+  .fc-today{
+	background-color: #c3e2e8!important;
+  }
+ /* Estrasmall devices (fino a 575px)*/
+@media (max-width: 575px) {
+	.fc-header-toolbar{
+		font-size: 0.65rem!important;
+	}
+} 
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+	.fc-header-toolbar{
+		font-size: 0.8rem!important;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {}
+  

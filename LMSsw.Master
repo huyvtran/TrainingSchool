@@ -1,0 +1,146 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="LMSsw.master.vb" Inherits="TrainingSchool.LMSsw" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+	
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/calendario.css">
+	<link rel="stylesheet" href="css/style.css">
+	
+	<!-- per calendario-->
+	<link href='packages/core/main.css' rel='stylesheet' />
+	<link href='packages/daygrid/main.css' rel='stylesheet' />
+	<link href='packages/timegrid/main.css' rel='stylesheet' />
+	<link href='packages/list/main.css' rel='stylesheet' />
+	<script src='packages/core/main.js'></script>
+	<script src='packages/interaction/main.js'></script>
+	<script src='packages/daygrid/main.js'></script>
+	<script src='packages/timegrid/main.js'></script>
+	<script src='packages/list/main.js'></script>
+	
+	<!-- per datepicker -->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script type="text/javascript" src="js/moment.min.js"></script>
+	<script type="text/javascript" src="js/moment.js"></script>
+	
+	<script type="text/javascript" src="js/locale/it.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+	
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+		<div class="container-fluid head">
+	<div class="row no-gutters">
+		<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-3">
+			<div>
+				<img src="img/Logo.png" height="40px" />
+			</div>
+		</div>
+		<div class="flex-row ml-md-auto d-none d-md-flex">
+			<div class="dropdown">
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+					Benvenuto Docente <img src="img/avatar5.png" width="12" />
+				</button>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Cambia Password</a>
+					<a class="dropdown-item" href="#">Esci</a>
+				</div>
+			</div> 
+		</div>
+	</div>
+</div>
+ <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <!-- Brand 
+  <a class="navbar-brand" href="#">Dove vuoi accedere?</a>
+	-->
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse navbar-expand-lg" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+       <li class="nav-item">
+      <a class="nav-link" href="#">HOME</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Video Tutorial</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Classi</a>
+    </li>
+	<li class="nav-item">
+      <a class="nav-link" href="#">Calendario</a>
+    </li>
+	<li class="nav-item">
+      <a class="nav-link" href="#">Corsi</a>
+    </li>
+	<li class="nav-item">
+      <a class="nav-link" href="#">Calendario Dirigente</a>
+    </li>
+	<li class="nav-item">
+      <a class="nav-link" href="#">Crediti professionali</a>
+    </li>
+	<li class="nav-item">
+      <a class="nav-link" href="#">MarketPlace</a>
+    </li>
+    </ul>
+  </div>
+</nav> 
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <div class="footer bg-dark">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+				<span style="color:#fff">Training school v.1.0 © 2011-2018 </span> - Assistenza tecnica attiva da Lunedì al Venerdì dalle 9.30 alle 13.00 e dalle 14.00 alle 18.00 <a href="mailto:supporto@training-school.it">supporto@training-school.it</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<script type="text/javascript">
+        $(document).ready(function () {
+            // Highlight bottom nav links
+            var clickEvent = false;
+            $("#myCarousel").on("click", ".nav a", function () {
+                clickEvent = true;
+                $(this).parent().siblings().removeClass("active");
+                $(this).parent().addClass("active");
+            }).on("slid.bs.carousel", function (e) {
+                if (!clickEvent) {
+                    itemIndex = $(e.relatedTarget).index();
+                    targetNavItem = $(".nav li[data-slide-to='" + itemIndex + "']");
+                    $(".nav li").not(targetNavItem).removeClass("active");
+                    targetNavItem.addClass("active");
+                }
+                clickEvent = false;
+            });
+        });
+        function mostra() {
+            document.getElementById("prossimoStep").style.display = "block";
+        }
+        function nascondi() {
+            document.getElementById("prossimoStep").style.display = "none";
+		}
+		</script>
+</body>
+</html>
