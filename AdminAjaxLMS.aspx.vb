@@ -32,7 +32,7 @@ Public Class Ajaxadminlms
     Dim endfolder As String = "</ol>"
     Dim enditem As String = "</li>"
     Dim result As Boolean
-
+    Dim jsonString As String
     Dim iconitem As String = "icon-file-text orange"
     Dim icontest As String = "icon-edit blue"
     Dim iconscorm As String = "icon-film green"
@@ -74,13 +74,12 @@ Public Class Ajaxadminlms
                         getmailformat(, Request.QueryString("format"))
                     Case "updateformatmail"
                         updatemailformat()
-
                     Case "checkdata"
                         checkdata()
-
                     Case "jgetallclass"
                         jgetallclass()
-
+                    Case "jgetargument"
+                        jgetargument()
                     Case "jgettest"
                         jgettest()
 
@@ -754,47 +753,26 @@ Public Class Ajaxadminlms
         End If
     End Sub
 
-    Protected Sub loginuser2()
+    Protected Sub loginuser()
 
 
 
         Dim username As String = Request.Form("username")
         Dim password As String = Request.Form("password")
 
-        Dim uri As New Uri("http://40.67.204.30:9001/trainingschool/public/login")
+        jsonString = "{""userId"":""" & username & """,""password"":""" & password & """}"
 
-        Dim jsonString As String = "{""userId"":""" & username & """,""password"":""" & password & """}"
         Try
-            '  ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
-            Dim jsonDataBytes = Encoding.UTF8.GetBytes(jsonString)
+            Dim json As String = apigeco("public/login", jsonString)
 
-
-            Dim req As WebRequest = WebRequest.Create(uri)
-
-            req.ContentType = "application/json"
-            req.Method = "POST"
-            req.ContentLength = jsonDataBytes.Length
-
-
-            Dim stream = req.GetRequestStream()
-            stream.Write(jsonDataBytes, 0, jsonDataBytes.Length)
-            stream.Close()
-
-            Session("token") = req.GetResponse().Headers("auth")
-            Dim response = req.GetResponse().GetResponseStream()
-
-            Dim reader As New StreamReader(response)
-
-            Dim res = reader.ReadToEnd()
-            reader.Close()
-            response.Close()
 
         Catch ex As Exception
+            LogWrite(ex.ToString)
         End Try
 
     End Sub
-    Protected Sub loginuser()
+    Protected Sub loginuser1()
 
 
 
@@ -2342,9 +2320,6 @@ Public Class Ajaxadminlms
         Try
 
             sqlstring = "select * from learning_category order by description asc "
-            '              sqlstring = "select node.idcategory, concat( concat(up1.description ,' -> ' ,node.description ),' -> ', cast(ifnull(up2.description, ' ') as char(50))) as description " &
-            '" from learning_category as node left outer join learning_category as up1 on up1.idcategory = node.idparent left outer join learning_category as up2 " &
-            '" on up2.idcategory = up1.idparent left outer join learning_category as up3 on up3.idcategory = up2.idparent where up1.description is not null and node.description is not null order by up1.description asc "
 
             sqlstring = "select * from learning_category order  by path asc "
 
@@ -3092,7 +3067,31 @@ Public Class Ajaxadminlms
     End Sub
 
 
+    Sub jgetargument()
 
+
+
+        Dim strselect As String = String.Empty
+        Try
+            sqlstring = "select * from learning_category  "
+
+
+            Dim dtoriginal = conn.GetDataTable(sqlstring, CommandType.Text, Nothing)
+
+            FillDataTable(dt, dtoriginal)
+
+            Dim jsonresult As String = JsonConvert.SerializeObject(dt) ' utility.getjson(dt)
+
+            Response.ContentType = "application/json"
+            jsonresult = jsonresult.Replace(" ", " ").Replace(vbCrLf, " ").Replace("\t", " ")
+
+            msg = jsonresult
+
+
+        Catch ex As Exception
+            SharedRoutines.LogWrite(ex.ToString)
+        End Try
+    End Sub
 
 
     Sub getstudentsession()

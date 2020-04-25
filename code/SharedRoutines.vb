@@ -13,6 +13,7 @@ Imports SelectPdf
 Imports System.Drawing
 Imports ICSharpCode.SharpZipLib.Zip
 Imports ICSharpCode.SharpZipLib.Core
+Imports System.Net
 
 Public Class SharedRoutines
 
@@ -966,7 +967,44 @@ Public Class SharedRoutines
 
 
 
+    Public Shared Function apigeco(service As String, Optional ByVal jsonstring As String = "")
+        Try
+            Dim uri As New Uri("http://40.67.204.30:9001/trainingschool/" & service)
+            Dim jsonDataBytes = Encoding.UTF8.GetBytes(jsonstring)
+            Dim req As WebRequest = WebRequest.Create(uri)
+            If Not HttpContext.Current.Session("token") Is Nothing Then
+                req.Headers.Add("auth", HttpContext.Current.Session("token"))
+            End If
+            req.ContentType = "application/json"
 
+
+            If jsonstring = "" Then
+                req.Method = "GET"
+            Else
+                req.Method = "POST"
+                req.ContentLength = jsonDataBytes.Length
+                Dim stream = req.GetRequestStream()
+                stream.Write(jsonDataBytes, 0, jsonDataBytes.Length)
+                stream.Close()
+            End If
+
+            If HttpContext.Current.Session("token") Is Nothing Then
+                HttpContext.Current.Session("token") = req.GetResponse().Headers("auth")
+            End If
+
+            Dim response = req.GetResponse().GetResponseStream()
+            Dim reader As New StreamReader(response)
+            Dim res = reader.ReadToEnd()
+            reader.Close()
+            response.Close()
+
+            Return res
+
+        Catch ex As Exception
+            LogWriteApi(ex.ToString)
+            Return Nothing
+        End Try
+    End Function
 
     Public Shared Function gettitle(ByVal title As String)
 
@@ -2424,7 +2462,15 @@ Public Class SharedRoutines
 
     End Sub
 
+    Public Shared Sub LogWriteApi(s As String)
+        Try
+            Using stre As New StreamWriter(IO.Path.Combine(HttpContext.Current.Server.MapPath("log"), "logapi.txt"), True)
+                stre.WriteLine(Now & ": " & s & vbCrLf)
+            End Using
+        Catch ex As Exception
+        End Try
 
+    End Sub
     Public Shared Sub LogWrite(s As String)
         Try
             Using stre As New StreamWriter(IO.Path.Combine(HttpContext.Current.Server.MapPath("log"), "log.txt"), True)
