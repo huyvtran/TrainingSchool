@@ -82,9 +82,6 @@ Public Class Ajaxadminlms
                         jgetargument()
                     Case "jgettest"
                         jgettest()
-
-
-
                     Case "modprenotazioni"
                         Dim idsessione As Integer
                         Try
@@ -753,7 +750,7 @@ Public Class Ajaxadminlms
         End If
     End Sub
 
-    Protected Sub loginuser()
+    Protected Sub loginuser1()
 
 
 
@@ -772,7 +769,7 @@ Public Class Ajaxadminlms
         End Try
 
     End Sub
-    Protected Sub loginuser1()
+    Protected Sub loginuser()
 
 
 
@@ -845,145 +842,7 @@ Public Class Ajaxadminlms
     End Function
 #End Region
 #Region "marketplace"
-    Public Sub getPreferiti()
 
-        Dim strmedia As String
-        Dim id_comune As Integer
-        Dim id_regione As Integer
-        Dim id_provincia As Integer
-        Dim id_contratto As Integer
-        Dim id_orario As Integer
-        Dim id_mansione_lavorativa As Integer
-
-        Dim text As String
-        Dim order As String
-        Dim limit As String
-        Dim pagination As String
-        Dim highlight As String
-        Dim csname2 As String = "ButtonClickScript"
-        Dim cstype As Type = Me.GetType()
-        Dim cs As ClientScriptManager = Page.ClientScript
-        Dim cstext2 As New StringBuilder()
-        Dim npage As String
-        Try
-
-            pagination = Request.Form("rpage")
-
-            If pagination = "" Then
-                pagination = 1
-                limit = " limit 0," & npage
-            Else
-                limit = "limit " & pagination * npage & " , " & npage
-            End If
-
-
-            Dim where As String = " and "
-
-
-
-            Try
-                If Request.QueryString("order") <> "" Then
-                    order = " order by " & Request.QueryString("order")
-                End If
-            Catch ex As Exception
-            End Try
-
-            Try
-                If Request.Form("text") <> "" Then
-                    text = Request.Form("text")
-                End If
-            Catch ex As Exception
-            End Try
-
-
-            sqlstring = "select *  from ai_annunci"
-
-
-
-
-            Dim dtoriginal = conn.GetDataTable(sqlstring, CommandType.Text, Nothing)
-            If dtoriginal.Rows.Count > 0 Then
-
-
-
-                Session("resultpage") = 1 ' dtoriginal.Rows(0)("total")
-
-                cstext2.Append("<script type=""text/javascript""> function ShowButton() {}")
-                cstext2.Append("</script>")
-                ScriptManager.RegisterClientScriptBlock(Me.Page, Me.GetType(), "MyScript", cstext2.ToString, True)
-            Else
-
-                If (Not cs.IsClientScriptBlockRegistered(cstype, csname2)) Then
-
-
-                    cstext2.Append("<script type=""text/javascript""> function HideButton() {}")
-                    cstext2.Append("</script>")
-                    ScriptManager.RegisterClientScriptBlock(Me.Page, Me.GetType(), "MyScript", cstext2.ToString, True)
-
-                End If
-                Session("resultpage") = 0
-            End If
-
-            If Session("resultpage") > npage Then
-                strmedia = "<b class=""text-primary"">Annunci trovati:</b> <span class=""annuncitrovati""> " & Session("resultpage") & "</span> - <b class=""text-primary"">Pagina</b> " & pagination & " <b class=""text-primary"">di</b> 1 <div class=""space-10""></div>"
-            End If
-
-            Dim avatar As String
-            For Each dr In dtoriginal.Rows
-                Try
-
-
-                    highlight = "<div class=""media search-media""><div class=""media-left"">" &
-                              "<a href=""#"" onclick=""ViewModalModifica('WfIOViewProfile.aspx?iduser=" & dr("iduser") & "','Profilo Inserzionista');"" >    <img height=""72px"" class=""media-object"" src=""" & dr("img") & """/></a>" &
-                          "</div>" &
-                                 " <div class=""media-body""><div> " &
-                               "   <h4 class=""media-heading""> " &
-                                     " <a href=""#"" onclick=""ViewModalModifica('WfIOViewAds.aspx?idannuncio=" & dr("idannuncio") & "','Annuncio');"" class=""blue"">" & dr("titolo").ToString & "</a> " &
-                                "  </h4> Pubblicato il: " & FormatDateTime(dr("dataannuncio").ToString, DateFormat.GeneralDate) & " <b> " &
-                            "  </div>" &
-                             " <p>" & dr("testoannuncio").ToString & " ...</p> " &
-    "                           <div class=""search-actions text-center""> " &
-                                 " <span class=""text-info"">€</span> " &
-           " <span class=""blue bolder bigger-150"">" & dr("compenso") & "</span>  " & dr("annualemensile") & "" &
-           "<div class=""action-buttons bigger-125"">" &
-                                     " <a href=""#""  onclick=""RequestCall(" & dr("idannuncio").ToString & "," & Session("iduser") & ");""> <i class=""ace icon-phone green""></i> </a>" &
-           " <a href=""#""  onclick=""RequestFavourite(" & dr("idannuncio").ToString & ");""> " &
-           " <i class=""ace icon-heart red""></i>   </a> " &
-           "  <a href=""#""  onclick=""RequestRating(" & dr("idannuncio").ToString & ");"" > <i class=""ace icon-star orange2""></i> </a> " &
-                                 " </div> "
-
-
-                    If dr("id_tipoannuncio") = 1 Then
-                        highlight &= " <a  onclick=""RequestCurriculum(" & dr("idannuncio").ToString & "," & Session("iduser") & ");""  class=""search-btn-action btn btn-sm btn-block btn-info"">Acquista!</a> " &
-                                        " </div> </div>  </div> "
-                    Else
-
-                        highlight &= " <a  onclick=""AddCandidatura(" & dr("idannuncio").ToString & "," & Session("iduser") & ");""  class=""search-btn-action btn btn-sm btn-block btn-info"">Acquista!</a> " &
-                                                  " </div> </div>  </div> "
-                    End If
-
-
-                    If text <> "" Then
-                        highlight = Replace(highlight, text, "<mark>" & text & "</mark>")
-                    End If
-                    strmedia &= highlight
-                Catch ex As Exception
-                End Try
-
-            Next
-            If strmedia <> "" Then
-
-
-            Else
-                strmedia = "Nessun risultato con i criteri selezionati"
-            End If
-
-            msg = strmedia
-        Catch ex As Exception
-            LogWrite(ex.ToString)
-        End Try
-
-    End Sub
 
 
 
