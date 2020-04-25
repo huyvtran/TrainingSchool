@@ -1,0 +1,34 @@
+p {
+	margin: 0px;
+}
+.log_milestone {
+	font-weight: bold;
+	margin-top: 16px;
+}
+.log_info {
+	color: #000000;
+	margin-bottom: 16px;
+}
+.log_api {
+	color: #000099;
+}
+.log_api_success {
+	color: green;
+}
+.log_api_failure {
+	color: red;
+}
+.log_internal {
+	color: #777777;
+}
+.log_internal_success {
+	color: #777777;
+}
+.log_internal_failure {
+	color: #333333;
+}
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 16px;
+}

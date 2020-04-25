@@ -267,6 +267,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminAjaxLMS.aspx" />
+    <Content Include="apiboss.html" />
+    <Content Include="assets\js\codeUpload\application.js" />
+    <Content Include="assets\js\codeUpload\jquery.fileupload-ui.css" />
+    <Content Include="assets\js\codeUpload\jquery.fileupload-ui.js" />
+    <Content Include="assets\js\codeUpload\jquery.fileupload.css" />
+    <Content Include="assets\js\codeUpload\jquery.fileupload.js" />
+    <Content Include="assets\js\codeUpload\jquery.iframe-transport.js" />
+    <Content Include="assets\js\codeUpload\jquery.ui.widget.js" />
+    <Content Include="assets\js\lmsrb.js" />
+    <Content Include="assets\js\Poll.js" />
+    <Content Include="assets\js\quiz.js" />
+    <Content Include="assets\js\videorecorder\adapter-latest.js" />
+    <Content Include="assets\js\videorecorder\devices-rec.js" />
+    <Content Include="assets\js\videorecorder\MultiStreamsMixer.js" />
     <Content Include="css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-grid.min.css" />
     <Content Include="css\bootstrap-reboot.css" />
@@ -310,6 +324,211 @@
     <Content Include="js\moment.js" />
     <Content Include="js\moment.min.js" />
     <Content Include="js\popper.js" />
+    <Content Include="LMSContent\affiliate\back_footer.png" />
+    <Content Include="LMSContent\affiliate\blank.png" />
+    <Content Include="LMSContent\affiliate\csp.png" />
+    <Content Include="LMSContent\affiliate\culturaeinn.png" />
+    <Content Include="LMSContent\affiliate\demo.png" />
+    <Content Include="LMSContent\affiliate\favicon.png" />
+    <Content Include="LMSContent\affiliate\ferie.jpg" />
+    <Content Include="LMSContent\affiliate\ico_lang.png" />
+    <Content Include="LMSContent\affiliate\ico_menu.png" />
+    <Content Include="LMSContent\affiliate\ico_sprite.png" />
+    <Content Include="LMSContent\affiliate\logo.png" />
+    <Content Include="LMSContent\affiliate\sprite.png" />
+    <Content Include="LMSContent\affiliate\zerocosti.png" />
+    <Content Include="LMSContent\LMSPostBack.asmx" />
+    <Content Include="LMSContent\RunTimePlayer.aspx" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\a001content.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\a001index.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\a001titlemgr.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\a001_copertina.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\apiwrapper11.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\apiwrapper2004.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\dialog.css" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\avanti.png" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\barra.png" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\capitolo_0.jpg" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\chiudi.png" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\dlg-close.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\dlg-resize.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\dlg-titlebar.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\indietro.png" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\progress.png" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\progress8074.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\progress8074_bar.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsmanifest.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsmanifest.xml" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\scofunctions.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\scofunctions2004.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis-button.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis-cookie.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis-dialog.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis-image.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis-inline.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis-media.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis-progress.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis-strings.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis-timedate.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis-titlemgr.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis.css" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\trivantis.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\VideoCorso.xml" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\master.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\masterfinemodulo.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\a001content.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\a001index.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\a001titlemgr.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\a001_copertina.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\apiwrapper2004.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\dialog.css" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\avanti.png" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\barra.png" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\capitolo_0.jpg" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\chiudi.png" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\dlg-close.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\dlg-resize.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\dlg-titlebar.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\indietro.png" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\progress.png" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\progress8074.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\progress8074_bar.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsmanifest.xml" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\scofunctions2004.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis-button.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis-cookie.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis-dialog.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis-image.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis-inline.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis-media.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis-progress.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis-strings.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis-timedate.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis-titlemgr.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis.css" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\trivantis.js" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\VideoCorso.xml" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\master.html" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\masterfinemodulo.html" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\a001content.html" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\a001index.html" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\a001titlemgr.html" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\a001_copertina.html" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\apiwrapper11.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\apiwrapper2004.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\dialog.css" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\avanti.png" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\barra.png" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\capitolo_0.jpg" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\chiudi.png" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\dlg-close.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\dlg-resize.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\dlg-titlebar.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\indietro.png" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\progress.png" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\progress8074.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\progress8074_bar.gif" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsmanifest.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsmanifest.xml" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\scofunctions.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\scofunctions2004.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis-button.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis-cookie.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis-dialog.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis-image.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis-inline.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis-media.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis-progress.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis-strings.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis-timedate.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis-titlemgr.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis.css" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\trivantis.js" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\VideoCorso.xml" />
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\master.html" />
+    <Content Include="LMSContent\tinylms\borderstyle.css" />
+    <Content Include="LMSContent\tinylms\images\background_cropped.gif" />
+    <Content Include="LMSContent\tinylms\images\bg_nav.gif" />
+    <Content Include="LMSContent\tinylms\images\bg_nav.png" />
+    <Content Include="LMSContent\tinylms\images\bg_toc_item.gif" />
+    <Content Include="LMSContent\tinylms\images\bg_toc_item.png" />
+    <Content Include="LMSContent\tinylms\images\bug.gif" />
+    <Content Include="LMSContent\tinylms\images\feature_available.gif" />
+    <Content Include="LMSContent\tinylms\images\feature_unavailable.gif" />
+    <Content Include="LMSContent\tinylms\images\flash_unavailable.gif" />
+    <Content Include="LMSContent\tinylms\images\get_flashplayer.gif" />
+    <Content Include="LMSContent\tinylms\images\get_flashplayer_88_31.gif" />
+    <Content Include="LMSContent\tinylms\images\get_java_blue-button.gif" />
+    <Content Include="LMSContent\tinylms\images\imsmanifest.js" />
+    <Content Include="LMSContent\tinylms\images\java_unavailable.gif" />
+    <Content Include="LMSContent\tinylms\images\layout.gif" />
+    <Content Include="LMSContent\tinylms\images\layout_cropped.gif" />
+    <Content Include="LMSContent\tinylms\images\layout_mirrored_cropped.gif" />
+    <Content Include="LMSContent\tinylms\images\logo.gif" />
+    <Content Include="LMSContent\tinylms\images\off_button.gif" />
+    <Content Include="LMSContent\tinylms\images\on_button.gif" />
+    <Content Include="LMSContent\tinylms\images\picture_box.gif" />
+    <Content Include="LMSContent\tinylms\images\spacer.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\bg_toc_item.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\log_api.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\log_api_failure.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\log_api_success.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\log_internal.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\log_internal_failure.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\log_internal_success.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_error.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_nav_cell.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_nav_cellbig.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_nav_cellsmall.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_toc_browsed.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_toc_collapsed.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_toc_current.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_toc_disabled.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_toc_expanded.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_toc_failed.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_toc_passed.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_toc_spacer.gif" />
+    <Content Include="LMSContent\tinylms\images\symbols\sym_toc_unvisited.gif" />
+    <Content Include="LMSContent\tinylms\images\sym_toc_current.gif" />
+    <Content Include="LMSContent\tinylms\layertocstyle.css" />
+    <Content Include="LMSContent\tinylms\lib\alertlogger.js" />
+    <Content Include="LMSContent\tinylms\lib\collections.js" />
+    <Content Include="LMSContent\tinylms\lib\cookies.js" />
+    <Content Include="LMSContent\tinylms\lib\fonts.js" />
+    <Content Include="LMSContent\tinylms\lib\listlogger.js" />
+    <Content Include="LMSContent\tinylms\lib\lmsapi.js" />
+    <Content Include="LMSContent\tinylms\lib\lmscam.js" />
+    <Content Include="LMSContent\tinylms\lib\lmsdebug.js" />
+    <Content Include="LMSContent\tinylms\lib\lmslabels_de.js" />
+    <Content Include="LMSContent\tinylms\lib\lmslabels_en.js" />
+    <Content Include="LMSContent\tinylms\lib\lmslayernav.js" />
+    <Content Include="LMSContent\tinylms\lib\lmslayertoc.js" />
+    <Content Include="LMSContent\tinylms\lib\lmsrb.js" />
+    <Content Include="LMSContent\tinylms\lib\lmsstatistics.js" />
+    <Content Include="LMSContent\tinylms\lib\lmsstub.js" />
+    <Content Include="LMSContent\tinylms\lib\lmstreetoc.js" />
+    <Content Include="LMSContent\tinylms\lib\sha1.js" />
+    <Content Include="LMSContent\tinylms\lib\soapclient.js" />
+    <Content Include="LMSContent\tinylms\lib\stylesheet.css" />
+    <Content Include="LMSContent\tinylms\lib\versiontest.jar" />
+    <Content Include="LMSContent\tinylms\lib\versiontest.swf" />
+    <Content Include="LMSContent\tinylms\listlogger.css" />
+    <Content Include="LMSContent\tinylms\lmsbackground.html" />
+    <Content Include="LMSContent\tinylms\lmsbrowsertest_de.html" />
+    <Content Include="LMSContent\tinylms\lmsbrowsertest_en.html" />
+    <Content Include="LMSContent\tinylms\lmsempty.html" />
+    <Content Include="LMSContent\tinylms\lmslayernav.html" />
+    <Content Include="LMSContent\tinylms\lmslayertoc.html" />
+    <Content Include="LMSContent\tinylms\lmsloginpw_de.html" />
+    <Content Include="LMSContent\tinylms\lmslogin_.html" />
+    <Content Include="LMSContent\tinylms\lmslogin_de.html" />
+    <Content Include="LMSContent\tinylms\lmslogin_en.html" />
+    <Content Include="LMSContent\tinylms\lmsmenu.html" />
+    <Content Include="LMSContent\tinylms\lmstreetoc.html" />
+    <Content Include="LMSContent\tinylms\navstyle.css" />
+    <Content Include="LMSContent\tinylms\pagestyle.css" />
+    <Content Include="LMSContent\tinylms\tocstyle.css" />
+    <Content Include="LMSContent\tinylms\transparent.gif" />
     <Content Include="packages\core\LICENSE.txt" />
     <Content Include="packages\core\locales-all.js" />
     <Content Include="packages\core\locales-all.min.js" />
@@ -407,10 +626,52 @@
     <Content Include="packages\timegrid\main.js" />
     <Content Include="packages\timegrid\main.min.css" />
     <Content Include="packages\timegrid\main.min.js" />
+    <Content Include="UCCalendar.ascx" />
+    <Content Include="UCCalendarBoss.ascx" />
+    <Content Include="UCCalendarProfile.ascx" />
     <Content Include="UCCalendarTeacher.ascx" />
     <Content Include="Web.config" />
+    <Content Include="WFCalendar.aspx" />
+    <Content Include="WFCalendarBoss.aspx" />
+    <Content Include="WFCalendarProfile.aspx" />
     <Content Include="WFCalendarTeacher.aspx" />
+    <Content Include="WFCategory.aspx" />
+    <Content Include="WFCategoryUsers.aspx" />
+    <Content Include="WFChartUser.aspx" />
+    <Content Include="WFChat.aspx" />
+    <Content Include="WFCourse.aspx" />
+    <Content Include="WFCourseRoom.aspx" />
+    <Content Include="WFCourseStructure.aspx" />
+    <Content Include="WFCrediti.aspx" />
+    <Content Include="WFDashAdmin.aspx" />
+    <Content Include="WFDashStudent.aspx" />
+    <Content Include="WFDoposcuola.aspx" />
+    <Content Include="WFGallery.aspx" />
+    <Content Include="WFGroup.aspx" />
+    <Content Include="WFMakeCategory.aspx" />
+    <Content Include="WfMakeFaq.aspx" />
+    <Content Include="WfMakeHtml.aspx" />
+    <Content Include="WfMakeItem.aspx" />
+    <Content Include="WfMakePoll.aspx" />
+    <Content Include="WfMakeScorm.aspx" />
+    <Content Include="WfMakeTest.aspx" />
+    <Content Include="WFMarketPlace.aspx" />
     <Content Include="WFNewActivity.aspx" />
+    <Content Include="WFPlatform.aspx" />
+    <Content Include="WFProject.aspx" />
+    <Content Include="WFReport.aspx" />
+    <Content Include="WfReportSurvey.aspx" />
+    <Content Include="WFSegnalazioni.aspx" />
+    <Content Include="WFSetProp.aspx" />
+    <Content Include="WFSettingTemplate.aspx" />
+    <Content Include="WFStatObj.aspx" />
+    <Content Include="WFStatObjUser.aspx" />
+    <Content Include="WFstudentsAssign.aspx" />
+    <Content Include="WFteacherAssign.aspx" />
+    <Content Include="WFUsers.aspx" />
+    <Content Include="WFViewObj.aspx" />
+    <Content Include="WFViewScorm.aspx" />
+    <Content Include="WFLogin.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminAjaxLMS.aspx.designer.vb">
@@ -436,6 +697,19 @@
     <Compile Include="code\UserSCODataInfo.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HReport.ashx.vb">
+      <DependentUpon>HReport.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="HUpload.ashx.vb">
+      <DependentUpon>HUpload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="KeepAliveSession.ashx.vb">
+      <DependentUpon>KeepAliveSession.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="LMSContent\LMSPostBack.asmx.vb">
+      <DependentUpon>LMSPostBack.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="LMSsw.Master.designer.vb">
       <DependentUpon>LMSsw.Master</DependentUpon>
@@ -463,11 +737,53 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UCCalendar.ascx.designer.vb">
+      <DependentUpon>UCCalendar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UCCalendar.ascx.vb">
+      <DependentUpon>UCCalendar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UCCalendarBoss.ascx.designer.vb">
+      <DependentUpon>UCCalendarBoss.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UCCalendarBoss.ascx.vb">
+      <DependentUpon>UCCalendarBoss.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UCCalendarProfile.ascx.designer.vb">
+      <DependentUpon>UCCalendarProfile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UCCalendarProfile.ascx.vb">
+      <DependentUpon>UCCalendarProfile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="UCCalendarTeacher.ascx.designer.vb">
       <DependentUpon>UCCalendarTeacher.ascx</DependentUpon>
     </Compile>
     <Compile Include="UCCalendarTeacher.ascx.vb">
       <DependentUpon>UCCalendarTeacher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFCalendar.aspx.designer.vb">
+      <DependentUpon>WFCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFCalendar.aspx.vb">
+      <DependentUpon>WFCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFCalendarBoss.aspx.designer.vb">
+      <DependentUpon>WFCalendarBoss.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFCalendarBoss.aspx.vb">
+      <DependentUpon>WFCalendarBoss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFCalendarProfile.aspx.designer.vb">
+      <DependentUpon>WFCalendarProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFCalendarProfile.aspx.vb">
+      <DependentUpon>WFCalendarProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WFCalendarTeacher.aspx.designer.vb">
@@ -477,6 +793,153 @@
       <DependentUpon>WFCalendarTeacher.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="WFCategory.aspx.designer.vb">
+      <DependentUpon>WFCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFCategory.aspx.vb">
+      <DependentUpon>WFCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFCategoryUsers.aspx.designer.vb">
+      <DependentUpon>WFCategoryUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFCategoryUsers.aspx.vb">
+      <DependentUpon>WFCategoryUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFChartUser.aspx.designer.vb">
+      <DependentUpon>WFChartUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFChartUser.aspx.vb">
+      <DependentUpon>WFChartUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFChat.aspx.designer.vb">
+      <DependentUpon>WFChat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFChat.aspx.vb">
+      <DependentUpon>WFChat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFCourse.aspx.designer.vb">
+      <DependentUpon>WFCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFCourse.aspx.vb">
+      <DependentUpon>WFCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFCourseRoom.aspx.designer.vb">
+      <DependentUpon>WFCourseRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFCourseRoom.aspx.vb">
+      <DependentUpon>WFCourseRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFCourseStructure.aspx.designer.vb">
+      <DependentUpon>WFCourseStructure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFCourseStructure.aspx.vb">
+      <DependentUpon>WFCourseStructure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFCrediti.aspx.designer.vb">
+      <DependentUpon>WFCrediti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFCrediti.aspx.vb">
+      <DependentUpon>WFCrediti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFDashAdmin.aspx.designer.vb">
+      <DependentUpon>WFDashAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFDashAdmin.aspx.vb">
+      <DependentUpon>WFDashAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFDashStudent.aspx.designer.vb">
+      <DependentUpon>WFDashStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFDashStudent.aspx.vb">
+      <DependentUpon>WFDashStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFDoposcuola.aspx.designer.vb">
+      <DependentUpon>WFDoposcuola.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFDoposcuola.aspx.vb">
+      <DependentUpon>WFDoposcuola.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFGallery.aspx.designer.vb">
+      <DependentUpon>WFGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFGallery.aspx.vb">
+      <DependentUpon>WFGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFGroup.aspx.designer.vb">
+      <DependentUpon>WFGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFGroup.aspx.vb">
+      <DependentUpon>WFGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFMakeCategory.aspx.designer.vb">
+      <DependentUpon>WFMakeCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFMakeCategory.aspx.vb">
+      <DependentUpon>WFMakeCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WfMakeFaq.aspx.designer.vb">
+      <DependentUpon>WfMakeFaq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WfMakeFaq.aspx.vb">
+      <DependentUpon>WfMakeFaq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WfMakeHtml.aspx.designer.vb">
+      <DependentUpon>WfMakeHtml.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WfMakeHtml.aspx.vb">
+      <DependentUpon>WfMakeHtml.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WfMakeItem.aspx.designer.vb">
+      <DependentUpon>WfMakeItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WfMakeItem.aspx.vb">
+      <DependentUpon>WfMakeItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WfMakePoll.aspx.designer.vb">
+      <DependentUpon>WfMakePoll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WfMakePoll.aspx.vb">
+      <DependentUpon>WfMakePoll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WfMakeScorm.aspx.designer.vb">
+      <DependentUpon>WfMakeScorm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WfMakeScorm.aspx.vb">
+      <DependentUpon>WfMakeScorm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WfMakeTest.aspx.designer.vb">
+      <DependentUpon>WfMakeTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WfMakeTest.aspx.vb">
+      <DependentUpon>WfMakeTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFMarketPlace.aspx.designer.vb">
+      <DependentUpon>WFMarketPlace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFMarketPlace.aspx.vb">
+      <DependentUpon>WFMarketPlace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="WFNewActivity.aspx.designer.vb">
       <DependentUpon>WFNewActivity.aspx</DependentUpon>
     </Compile>
@@ -484,8 +947,116 @@
       <DependentUpon>WFNewActivity.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="WFPlatform.aspx.designer.vb">
+      <DependentUpon>WFPlatform.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFPlatform.aspx.vb">
+      <DependentUpon>WFPlatform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFProject.aspx.designer.vb">
+      <DependentUpon>WFProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFProject.aspx.vb">
+      <DependentUpon>WFProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFReport.aspx.designer.vb">
+      <DependentUpon>WFReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFReport.aspx.vb">
+      <DependentUpon>WFReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WfReportSurvey.aspx.designer.vb">
+      <DependentUpon>WfReportSurvey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WfReportSurvey.aspx.vb">
+      <DependentUpon>WfReportSurvey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFSegnalazioni.aspx.designer.vb">
+      <DependentUpon>WFSegnalazioni.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFSegnalazioni.aspx.vb">
+      <DependentUpon>WFSegnalazioni.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFSetProp.aspx.designer.vb">
+      <DependentUpon>WFSetProp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFSetProp.aspx.vb">
+      <DependentUpon>WFSetProp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFSettingTemplate.aspx.designer.vb">
+      <DependentUpon>WFSettingTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFSettingTemplate.aspx.vb">
+      <DependentUpon>WFSettingTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFStatObj.aspx.designer.vb">
+      <DependentUpon>WFStatObj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFStatObj.aspx.vb">
+      <DependentUpon>WFStatObj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFStatObjUser.aspx.designer.vb">
+      <DependentUpon>WFStatObjUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFStatObjUser.aspx.vb">
+      <DependentUpon>WFStatObjUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFstudentsAssign.aspx.designer.vb">
+      <DependentUpon>WFstudentsAssign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFstudentsAssign.aspx.vb">
+      <DependentUpon>WFstudentsAssign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFteacherAssign.aspx.designer.vb">
+      <DependentUpon>WFteacherAssign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFteacherAssign.aspx.vb">
+      <DependentUpon>WFteacherAssign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFUsers.aspx.designer.vb">
+      <DependentUpon>WFUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFUsers.aspx.vb">
+      <DependentUpon>WFUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFViewObj.aspx.designer.vb">
+      <DependentUpon>WFViewObj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFViewObj.aspx.vb">
+      <DependentUpon>WFViewObj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFViewScorm.aspx.designer.vb">
+      <DependentUpon>WFViewScorm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFViewScorm.aspx.vb">
+      <DependentUpon>WFViewScorm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WFLogin.aspx.designer.vb">
+      <DependentUpon>WFLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WFLogin.aspx.vb">
+      <DependentUpon>WFLogin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="LMSContent\LMSPostBack.asmx.resx">
+      <DependentUpon>LMSPostBack.asmx.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -510,6 +1081,161 @@
     <Content Include="js\bootstrap.bundle.min.js.map" />
     <Content Include="js\bootstrap.js.map" />
     <Content Include="js\bootstrap.min.js.map" />
+    <Content Include="HReport.ashx" />
+    <Content Include="HUpload.ashx" />
+    <Content Include="KeepAliveSession.ashx" />
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\adlcp_rootv1p2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\adlcp_v1p3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\adlnav_v1p3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="LMSContent\ScormCreate\SCORM1.2\filecopy\images\Thumbs.db" />
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imscp_rootv1p1p2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imscp_v1p1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsmd_rootv1p2p1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsss_v1p0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsss_v1p0auxresource.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsss_v1p0control.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsss_v1p0delivery.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsss_v1p0limit.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsss_v1p0objective.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsss_v1p0random.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsss_v1p0rollup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsss_v1p0seqrule.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\imsss_v1p0util.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.2\filecopy\ims_xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\adlcp_v1p3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\adlnav_v1p3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\dtd\IMS_METADATAv1p1.dtd" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\dtd\scormcsf%281.1%29.dtd" />
+    <Content Include="LMSContent\ScormCreate\SCORM1.3\filecopy\images\Thumbs.db" />
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imscp_v1p1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsmd_rootv1p2p1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsss_v1p0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsss_v1p0auxresource.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsss_v1p0control.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsss_v1p0delivery.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsss_v1p0limit.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsss_v1p0objective.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsss_v1p0random.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsss_v1p0rollup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsss_v1p0seqrule.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\imsss_v1p0util.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORM1.3\filecopy\ims_xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\adlcp_rootv1p2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\adlcp_v1p3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\adlnav_v1p3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\images\Thumbs.db" />
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imscp_rootv1p1p2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imscp_v1p1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsmd_rootv1p2p1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsss_v1p0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsss_v1p0auxresource.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsss_v1p0control.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsss_v1p0delivery.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsss_v1p0limit.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsss_v1p0objective.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsss_v1p0random.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsss_v1p0rollup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsss_v1p0seqrule.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\imsss_v1p0util.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LMSContent\ScormCreate\SCORMYOUTUBE1.2\filecopy\ims_xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -544,6 +1270,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="LMSContent\Content\affiliate\" />
+    <Folder Include="LMSContent\Content\curricula\" />
+    <Folder Include="LMSContent\Content\Item\" />
+    <Folder Include="LMSContent\Content\scorm\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="packages\core\main.d.ts" />

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--
+ * @(#)lmslayernav.html 1.0 2003-09-12
+ *
+ * Copyright (c) 2003 Werner Randelshofer
+ * Staldenmattweg 2, Immensee, CH-6405, Switzerland
+ * All rights reserved.
+ *
+ * This software is the confidential and proprietary information of 
+ * Werner Randelshofer. ("Confidential Information").  You shall not
+ * disclose such Confidential Information and shall use it only in
+ * accordance with the terms of the license agreement you entered into
+ * with Werner Randelshofer.
+-->
+<html>
+<head>
+<title>TinyLMS TOC</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" src="lib/collections.js" type="text/JavaScript"></script>
+<script language="JavaScript" src="lib/fonts.js" type="text/JavaScript"></script>
+<script language="JavaScript" src="lib/lmsstub.js" type="text/JavaScript"></script>
+<script language="JavaScript" src="lib/lmslayernav.js" type="text/JavaScript"></script>
+<link href="navstyle.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+</head>
+<body background="images/bg_toc_item.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" tracingsrc="images/layout.gif" tracingopacity="0">
+<p>&nbsp;</p>
+<div id="navLayer" style="position:absolute; left:24px; top:1px; width:360px; height:18px; z-index:1" class="currentLink"> 
+  <script language="JavaScript" type="text/JavaScript">
+nav.writeColumns();
+</script>
+</div>
+<div id="buttonsLayer" style="position:absolute; left:480px; top:1px; width:288px; height:18px; z-index:2"> 
+  <div align="right"><script language="JavaScript" type="text/JavaScript">
+nav.writeButtons();
+        </script></div>
+</div>
+<div id="layerSeq" style="position:absolute; left:384px; top:1px; width:72px; height:18px; z-index:3"> 
+  <div align="right">
+    <script language="JavaScript" type="text/JavaScript">
+nav.writeCells();
+</script>
+  </div>
+</div>
+</body>
+</html>

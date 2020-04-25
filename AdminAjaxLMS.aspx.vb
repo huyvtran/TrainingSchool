@@ -141,6 +141,8 @@ Public Class Ajaxadminlms
                         ' if session("admin") then
 
                         Select Case (Request.QueryString("oper"))
+                            Case "getcalendar"
+                                getcalendar()
                             Case "insertestexam"
                                 maketestcourse()
                             Case "gettesteassigned"
@@ -347,8 +349,6 @@ Public Class Ajaxadminlms
                             Case "cat"
                                 getallcatcourse()
 
-                            Case "downloadexcel"
-                                downloadreport()
 
                             Case "getusers"
                                 getuserscourse(idcourse)
@@ -579,6 +579,9 @@ Public Class Ajaxadminlms
         End Try
 
     End Sub
+
+
+
 
 
 
@@ -3277,6 +3280,32 @@ Public Class Ajaxadminlms
 #End Region
 
 #Region "aula_sessioni"
+    Function getcalendar()
+
+
+        Dim options As String = String.Empty
+            Dim idcategory As Integer = 0
+            Dim datastorica As String = String.Empty
+            Dim support As String = String.Empty
+
+
+
+        sqlstring = "select *,datastart as start,dataend as end,concat(UPPER(b.firstname),' ', b.lastname) as docente,a.nomesessione as title,c.description from (aula_sessioni a join core_user b on a.iduser=b.idst) join core_category_users c on a.idcategory=c.idcategory where  " & support & "  " & datastorica & "   visible=1 "
+
+
+        Dim dtoriginal = conn.GetDataTable(sqlstring, CommandType.Text, Nothing)
+
+        FillDataTable(dt, dtoriginal)
+
+        Dim jsonresult As String = utility.GetJson(dt)
+
+        Response.ContentType = "application/json"
+        jsonresult = jsonresult.Replace(" ", " ").Replace(vbCrLf, " ").Replace("\t", " ")
+
+        msg = jsonresult
+
+
+    End Function
 
     Public Sub getcoursesession(Optional ByVal idcategory As Integer = 0)
         Try

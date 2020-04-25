@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--
+ * @(#)lmslayertoc.html 1.1.7  2003-11-06
+ *
+ * Copyright (c) 2003 Werner Randelshofer
+ * Staldenmattweg 2, Immensee, CH-6405, Switzerland
+ * All rights reserved.
+ *
+ * This software is the confidential and proprietary information of 
+ * Werner Randelshofer. ("Confidential Information").  You shall not
+ * disclose such Confidential Information and shall use it only in
+ * accordance with the terms of the license agreement you entered into
+ * with Werner Randelshofer.
+-->
+<html>
+<head>
+<title>TinyLMS TOC</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" src="lib/collections.js" type="text/JavaScript"></script>
+<script language="JavaScript" src="lib/fonts.js" type="text/JavaScript"></script>
+<script language="JavaScript" src="lib/lmsstub.js" type="text/JavaScript"></script>
+<link href="layertocstyle.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_callJS(jsStr) { //v2.0
+  return eval(jsStr)
+}
+//-->
+</script>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"><table height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left" valign="top"><script language="JavaScript" src="lib/lmslayertoc.js" type="text/JavaScript"></script></td>
+  </tr>
+  <tr>
+    <td height="13" valign="bottom"><script language="JavaScript" type="text/JavaScript">
+<!--
+var api = stub.getAPI();
+if (api != null && api.showBugInfoButton) {
+  document.write(
+	'<a href="#"  onclick="stub.getAPI().showBugInfo()"><img src="images/bug.gif" width="13" height="13" border="0"></a>'
+	);
+}
+if (api != null && api.showDebugButtons) {
+  document.write('&nbsp;<a href="#"  onclick="stub.getAPI().toggleLogging();stub.getAPI().fireUpdateTOC();">');
+	if (api.logger.level > 0) {
+	document.write('<img src="images/on_button.gif" width="48" height="18" border="0">');
+  } else {
+	document.write('<img src="images/off_button.gif" width="48" height="18" border="0">');
+	}
+	document.write('</a>');
+}
+//--
+</script></td>
+  </tr>
+</table></body>
+</html>

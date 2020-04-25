@@ -77,25 +77,25 @@
       <a class="nav-link" href="#">HOME</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Video Tutorial</a>
+      <a class="nav-link" href="WFGallery.aspx">Video Tutorial</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Classi</a>
+      <a class="nav-link" href="WfGroup.aspx">Classi</a>
     </li>
 	<li class="nav-item">
-      <a class="nav-link" href="#">Calendario</a>
+      <a class="nav-link" href="WFCalendarTeacher.aspx">Calendario</a>
     </li>
 	<li class="nav-item">
-      <a class="nav-link" href="#">Corsi</a>
+      <a class="nav-link" href="WFCourse.aspx">Corsi</a>
     </li>
 	<li class="nav-item">
-      <a class="nav-link" href="#">Calendario Dirigente</a>
+      <a class="nav-link" href="WFCalendarProfile.aspx">Calendario Dirigente</a>
     </li>
 	<li class="nav-item">
-      <a class="nav-link" href="#">Crediti professionali</a>
+      <a class="nav-link" href="WFCrediti.aspx">Crediti professionali</a>
     </li>
 	<li class="nav-item">
-      <a class="nav-link" href="#">MarketPlace</a>
+      <a class="nav-link" href="WFMarketPlace.aspx">MarketPlace</a>
     </li>
     </ul>
   </div>

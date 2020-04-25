@@ -1,0 +1,430 @@
+<html>
+<head>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <script src='https://meet.jit.si/external_api.js'></script>
+    <script src="assets/js/lmsrb.js"></script>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootbox.js?ver=2"></script>
+    <style>
+
+        h1 {
+            color: #396;
+            font-weight: 100;
+            font-size: 40px;
+            margin: 40px 0px 20px;
+        }
+
+        #clockdiv {
+            font-family: sans-serif;
+            color: #fff;
+            display: inline-block;
+            font-weight: 100;
+            text-align: center;
+            font-size: 30px;
+            position: absolute;
+            top: 5px;
+            left: 10%;
+        }
+
+            #clockdiv > div {
+                padding: 10px;
+                border-radius: 3px;
+                background: #00BF96;
+                display: inline-block;
+            }
+
+
+        #clockdivpause {
+            font-family: sans-serif;
+            color: #fff;
+            display: inline-block;
+            font-weight: 100;
+            text-align: center;
+            font-size: 30px;
+          
+        }
+
+            #clockdivpause > div {
+                padding: 10px;
+                border-radius: 3px;
+                background: #00BF96;
+                display: inline-block;
+            }
+    </style>
+</head>
+<body onunload="disposeapi()">
+
+    
+        <div class="hide" id="clockdiv">
+
+            <div>
+                <span class="hours"></span>
+
+            </div>
+            <div>
+                <span class="minutes"></span>
+
+            </div>
+            <div>
+                <span class="seconds"></span>
+
+            </div>
+        </div>
+
+     
+        <div id="meet">
+        </div>
+
+   
+
+
+    <div id="modal-pause" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                  
+                    <h4 class="modal-title" id="myModalLabel">Pausa</h4>
+                </div>
+                <!-- /.modal-header -->
+                <div class="modal-body">
+
+                    <h2>E' iniziata la pausa attendere lo scadere del timer per riprendere la videconferenza</h2>
+
+
+                    <div id="clockdivpause">
+
+                        <div>
+                            <span class="hours1"></span>
+
+                        </div>
+                        <div>
+                            <span class="minutes1"></span>
+
+                        </div>
+                        <div>
+                            <span class="seconds1"></span>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                </div>
+
+
+                <!-- /.modal-body -->
+                <!-- /.modal-footer -->
+            </div>
+
+            <div class="modal-footer">
+                <div class="pull-right">
+                   
+                </div>
+                <div id="webinar" class="pull-left"></div>
+            </div>
+
+        </div>
+
+    
+
+
+
+    <script>
+        var timeinterval;
+        var timeintervalpause;
+        var timerintervaltime;
+        var deadline;
+        var deadlinepause;
+        var pause =  15 * 60 * 1000;
+        var totaltime = 8 * 60 * 60 * 1000;
+        var intervalmeet = 120 * 60 * 1000;
+       
+        var now = new Date();
+        var expirecookie = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+        var g = getParameterByName("g");
+        var b = true;
+
+        if (g == 2)
+            b = false;
+
+
+        const domain = 'meet.training-school.it';
+        var options = {
+            roomName: getParameterByName("joinurl"),
+            width: '100%',
+            height: 900,
+            parentNode: document.querySelector('#meet'),
+            configOverwrite: {},
+            interfaceConfigOverwrite: {
+                filmStripOnly: b
+            }
+        }
+        var api = new JitsiMeetExternalAPI(domain, options);
+        api.executeCommand('displayName', getParameterByName("fullname"));
+
+        if (g == 2) {
+
+            api.executeCommand('avatarUrl', 'https://fad.training-school.it/assets/images/avatars/user.jpg');
+
+        } else {
+            api.executeCommand('avatarUrl', 'https://fad.training-school.it/assets/images/avatars/avatar.png');
+
+        }
+
+
+        api.on('readyToClose', () => {
+            api.dispose();
+        });
+
+
+        api.on('participantJoined', (event, listener) => {
+            $.ajax({
+                url: 'adminAjaxLMS.aspx?op=modsessioniboss&oper=joinon',
+                type: 'POST',
+                data: { idjitsi: event.id, iduser: getParameterByName("iduser"), idsessione: getParameterByName("idsessione") },
+                success: function (data) {
+         //           alert('partecipant joined');
+                }
+
+            });
+
+        });
+
+        api.on('participantLeft', (event, listener) => {
+            $.ajax({
+                url: 'adminAjaxLMS.aspx?op=modsessioniboss&oper=joinleft',
+                type: 'POST',
+                data: { idjitsi: event.id, iduser: getParameterByName("iduser"), idsessione: getParameterByName("idsessione") },
+                success: function (data) {
+                  //  alert('partecipant left');
+                    api.dispose();
+                    clearInterval(timeinterval);
+                }
+
+            });
+
+        });
+
+
+        api.on('videoConferenceJoined', (event, listener) => {
+            $.ajax({
+                url: 'adminAjaxLMS.aspx?op=modsessionbossi&oper=joinon',
+                type: 'POST',
+                data: { idjitsi: event.id, iduser: getParameterByName("iduser"), idsessione: getParameterByName("idsessione") },
+                success: function (data) {
+             //       alert('videoconference joined');
+                }
+
+            });
+        });
+
+        api.on('videoConferenceLeft', (event, listener) => {
+            $.ajax({
+                url: 'adminAjaxLMS.aspx?op=modsessioniboss&oper=joinleft',
+                type: 'POST',
+                data: { idjitsi: event.id, iduser: getParameterByName("iduser"), idsessione: getParameterByName("idsessione") },
+                success: function (data) {
+                  //  alert('videoconference left');
+                    clearInterval(timeinterval);
+                }
+
+            });
+
+        });
+
+
+
+        jQuery(function ($) {
+
+            if (getParameterByName("cfg") == 1) {
+                $("#clockdiv").removeClass("hide");
+                if (document.cookie && document.cookie.match('myClock')) {
+
+                    if (document.cookie && document.cookie.match('myClockpause')) {
+                        //se esiste un cookie con pausa attivata riprende il timer della pausa
+                        $("#modal-pause").modal({ backdrop: 'static', keyboard: false }, 'show');
+                        api.executeCommand('toggleAudio');
+                        api.executeCommand('toggleVideo');
+
+                        //recupero il tempo rimanente
+                        deadlinepause = document.cookie.match(/(^|;)myClockpause=([^;]+)/)[2];
+                        // avvio il timer 
+                        initializeClockpause('clockdivpause', deadlinepause);
+                    }
+
+
+                    //se esiste un cookie riprende il tempo totale
+                    deadline = document.cookie.match(/(^|;)myClock=([^;]+)/)[2];
+                    initializeClock('clockdiv', deadline);
+                } else {
+
+                    deadlinepause = new Date(Date.parse(new Date()) + 5000);
+                    initializeClockpause('clockdivpause', deadlinepause);
+                    //altrimenti crea un timer nuovo con il tempo totale
+                    deadline = new Date(Date.parse(new Date()) + totaltime);  // 8 ore
+                    SetCookie(0);
+
+                }
+
+                // altrimenti resetto il timer
+                timerintervaltime = setInterval(function () { showPopup(); }, (intervalmeet)); //120 minuti
+
+            }
+
+        });
+
+
+
+        function showPopup() {
+
+            //avvio la pausa
+            $("#modal-pause").modal({ backdrop: 'static', keyboard: false }, 'show');
+          
+            clearInterval(timeinterval);
+            api.executeCommand('toggleAudio');
+            api.executeCommand('toggleVideo');
+
+            SetCookiePause(pause);
+
+            setTimeout(function () {
+            
+                api.executeCommand('toggleAudio');
+                api.executeCommand('toggleVideo');
+                //sospendo la pausa
+              
+                //Aggiungo 15 minuti in piu al cookie totale
+                SetCookie(pause);//15 minuti
+               
+            }, (pause));
+
+        }
+
+
+        //Set Cookie
+        function SetCookiePause(timeminus) {
+            //Cookie timer 15minuti
+           
+            deadlinepause = new Date(Date.parse(new Date()) + timeminus);  // 8 or
+            initializeClockpause('clockdivpause', deadlinepause);
+
+            var offset = 5 * 1000
+            deadlinepauseoffset = new Date(Date.parse(new Date()) + timeminus +  offset);
+            document.cookie = 'myClockpause=' + deadlinepause + ';expires=' + deadlinepauseoffset.toGMTString() + ';path=/';
+        }
+
+        function SetCookie(timeminus) {
+
+
+            //Cookie timer 8 ore
+            var deadlinedate = new Date(deadline);
+            var time = deadlinedate.getTime();
+            var expireTime = (time + timeminus);
+            deadline = new Date(expireTime);
+
+            initializeClock('clockdiv', deadline);
+
+            document.cookie = 'myClock=' + deadline + ';expires=' + expirecookie.toGMTString() + ';path=/';
+        }
+
+
+        //Timer 1'
+
+        function getTimeRemaining(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+
+            return {
+                'total': t,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+
+        function initializeClock(id, endtime) {
+            var clock = document.getElementById(id);
+
+            var hoursSpan = clock.querySelector('.hours');
+            var minutesSpan = clock.querySelector('.minutes');
+            var secondsSpan = clock.querySelector('.seconds');
+
+            function updateClock() {
+                var t = getTimeRemaining(endtime);
+
+
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                    clearInterval(timerintervaltime);
+                    disposeapi();
+                    ShowAlert("Il tempo di permanenza in videconferenza per oggi è terminato");
+                    return false;
+                }
+            }
+
+            updateClock();
+            timeinterval = setInterval(updateClock, 1000);
+        }
+
+           //Timer 2
+
+        function getTimeRemainingpause(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+
+            return {
+                'total': t,
+                'hours1': hours,
+                'minutes1': minutes,
+                'seconds1': seconds
+            };
+        }
+
+        function initializeClockpause(id, endtime) {
+            var clock = document.getElementById(id);
+
+            var hoursSpan = clock.querySelector('.hours1');
+            var minutesSpan = clock.querySelector('.minutes1');
+            var secondsSpan = clock.querySelector('.seconds1');
+
+            function updateClockpause() {
+                var t1 = getTimeRemainingpause(endtime);
+
+                
+                hoursSpan.innerHTML = ('0' + t1.hours1).slice(-2);
+                minutesSpan.innerHTML = ('0' + t1.minutes1).slice(-2);
+                secondsSpan.innerHTML = ('0' + t1.seconds1).slice(-2);
+
+                if (t1.total <= 0) {
+                    $("#modal-pause").modal( 'hide');
+                   clearInterval(timeintervalpause);
+                }
+            }
+
+            updateClockpause();
+            timeintervalpause = setInterval(updateClockpause, 1000);
+        }
+
+
+        function disposeapi() {
+            api.dispose();
+        }
+    </script>
+</body>
+
+
+
+</html>
