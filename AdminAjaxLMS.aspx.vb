@@ -322,11 +322,7 @@ Public Class Ajaxadminlms
 
                         End Select
 
-                    Case "modmarketplace"
-                        Select Case Request.QueryString("oper")
-                            Case "get"
-                                getPreferiti()
-                        End Select
+
                     Case "getcourseteacher"
                         Select Case Request.QueryString("oper")
                             Case "get"
