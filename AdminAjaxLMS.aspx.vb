@@ -754,7 +754,7 @@ Public Class Ajaxadminlms
         End If
     End Sub
 
-    Protected Sub loginuser()
+    Protected Sub loginuser2()
 
 
 
@@ -764,36 +764,37 @@ Public Class Ajaxadminlms
         Dim uri As New Uri("http://40.67.204.30:9001/trainingschool/public/login")
 
         Dim jsonString As String = "{""userId"":""" & username & """,""password"":""" & password & """}"
+        Try
+            '  ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
-        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-
-        Dim jsonDataBytes = Encoding.UTF8.GetBytes(jsonString)
-
-
-        Dim req As WebRequest = WebRequest.Create(uri)
-
-        req.ContentType = "application/json"
-        req.Method = "POST"
-        req.ContentLength = jsonDataBytes.Length
+            Dim jsonDataBytes = Encoding.UTF8.GetBytes(jsonString)
 
 
-        Dim stream = req.GetRequestStream()
-        stream.Write(jsonDataBytes, 0, jsonDataBytes.Length)
-        stream.Close()
+            Dim req As WebRequest = WebRequest.Create(uri)
 
-        Session("token") = req.GetResponse().Headers("auth")
-        Dim response = req.GetResponse().GetResponseStream()
-
-        Dim reader As New StreamReader(response)
-
-        Dim res = reader.ReadToEnd()
-        reader.Close()
-        response.Close()
+            req.ContentType = "application/json"
+            req.Method = "POST"
+            req.ContentLength = jsonDataBytes.Length
 
 
+            Dim stream = req.GetRequestStream()
+            stream.Write(jsonDataBytes, 0, jsonDataBytes.Length)
+            stream.Close()
+
+            Session("token") = req.GetResponse().Headers("auth")
+            Dim response = req.GetResponse().GetResponseStream()
+
+            Dim reader As New StreamReader(response)
+
+            Dim res = reader.ReadToEnd()
+            reader.Close()
+            response.Close()
+
+        Catch ex As Exception
+        End Try
 
     End Sub
-    Protected Sub loginuser1()
+    Protected Sub loginuser()
 
 
 
@@ -3037,7 +3038,6 @@ Public Class Ajaxadminlms
 
     Sub jgetallclass()
 
-        Dim jsonresult As String = String.Empty
 
         Dim dt As DataTable = Nothing
 
@@ -3053,26 +3053,38 @@ Public Class Ajaxadminlms
         Try
             sqlstring = "select a.description,a.idcategory from core_category_users a  join aula_docenti b on a.idcategory=b.idcategory where iduser=" & Session("iduser") & " order by a.description asc"
 
-            dt = conn.GetDataTable(sqlstring, CommandType.Text, Nothing)
-            strselect &= "$('select[name=""" & input & """]').empty();" & vbCrLf
 
-            strselect &= "$('select[name=""" & input & """]').append('<option value=""0"">Tutte le classi</option>');" & vbCrLf
+            Dim dtoriginal = conn.GetDataTable(sqlstring, CommandType.Text, Nothing)
 
-            For Each dr In dt.Rows
-                Try
-                    If dr("idcategory") = Request.QueryString("idcategory") Then
-                        selected = "selected"
-                    Else
-                        selected = ""
-                    End If
-                Catch ex As Exception
-                End Try
+            FillDataTable(dt, dtoriginal)
 
-                strselect &= "$('select[name=""" & input & """').append($('<option ></option>').val(""" & Replace(dr("idcategory"), "'", "\'") & """).html(""" & Replace(dr("description").ToString, "'", "\'") & """).prop('selected',""" & selected & """));" & vbCrLf
+            Dim jsonresult As String = JsonConvert.SerializeObject(dt) ' utility.getjson(dt)
 
-            Next
+            Response.ContentType = "application/json"
+            jsonresult = jsonresult.Replace(" ", " ").Replace(vbCrLf, " ").Replace("\t", " ")
 
-            msg = strselect
+            msg = jsonresult
+
+            'dt = conn.GetDataTable(sqlstring, CommandType.Text, Nothing)
+            'strselect &= "$('select[name=""" & input & """]').empty();" & vbCrLf
+
+            'strselect &= "$('select[name=""" & input & """]').append('<option value=""0"">Tutte le classi</option>');" & vbCrLf
+
+            'For Each dr In dt.Rows
+            '    Try
+            '        If dr("idcategory") = Request.QueryString("idcategory") Then
+            '            selected = "selected"
+            '        Else
+            '            selected = ""
+            '        End If
+            '    Catch ex As Exception
+            '    End Try
+
+            '    strselect &= "$('select[name=""" & input & """').append($('<option ></option>').val(""" & Replace(dr("idcategory"), "'", "\'") & """).html(""" & Replace(dr("description").ToString, "'", "\'") & """).prop('selected',""" & selected & """));" & vbCrLf
+
+            'Next
+
+            'msg = strselect
 
         Catch ex As Exception
             SharedRoutines.LogWrite(ex.ToString)
