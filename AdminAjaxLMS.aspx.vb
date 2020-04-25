@@ -754,8 +754,46 @@ Public Class Ajaxadminlms
         End If
     End Sub
 
-
     Protected Sub loginuser()
+
+
+
+        Dim username As String = Request.Form("username")
+        Dim password As String = Request.Form("password")
+
+        Dim uri As New Uri("http://40.67.204.30:9001/trainingschool/public/login")
+
+        Dim jsonString As String = "{""userId"":""" & username & """,""password"":""" & password & """}"
+
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+
+        Dim jsonDataBytes = Encoding.UTF8.GetBytes(jsonString)
+
+
+        Dim req As WebRequest = WebRequest.Create(uri)
+
+        req.ContentType = "application/json"
+        req.Method = "POST"
+        req.ContentLength = jsonDataBytes.Length
+
+
+        Dim stream = req.GetRequestStream()
+        stream.Write(jsonDataBytes, 0, jsonDataBytes.Length)
+        stream.Close()
+
+        Session("token") = req.GetResponse().Headers("auth")
+        Dim response = req.GetResponse().GetResponseStream()
+
+        Dim reader As New StreamReader(response)
+
+        Dim res = reader.ReadToEnd()
+        reader.Close()
+        response.Close()
+
+
+
+    End Sub
+    Protected Sub loginuser1()
 
 
 

@@ -146,7 +146,9 @@
                                 </label>
                                 <button type="button" id="btnlogin" class="btn btn-login float-right">Submit</button>
                             </div>
-
+                            <div id="alertmsg" class="alertmsg alert-danger" role="alert">
+  <span class="txtalert"></span>
+</div>
                         </form>
                      
                     </div>
